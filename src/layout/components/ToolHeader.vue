@@ -1,6 +1,7 @@
 <script lang="tsx">
 import { defineComponent, computed } from 'vue'
 import { Collapse } from '@/components/Collapse'
+import { ThemeSwitch } from '@/components/ThemeSwitch'
 import { LocaleDropdown } from '@/components/LocaleDropdown'
 import { SizeDropdown } from '@/components/SizeDropdown'
 import { UserInfo } from '@/components/UserInfo'
@@ -8,6 +9,7 @@ import { Screenfull } from '@/components/Screenfull'
 import { Breadcrumb } from '@/components/Breadcrumb'
 import { useAppStore } from '@/store/modules/app'
 import { useDesign } from '@/hooks/web/useDesign'
+import { getCssVar } from '@/utils'
 
 const { getPrefixCls, variables } = useDesign()
 
@@ -33,6 +35,12 @@ const layout = computed(() => appStore.getLayout)
 // 多语言图标
 const locale = computed(() => appStore.getLocale)
 
+const themeChange = () => {
+  const color = getCssVar('--el-bg-color')
+  appStore.setMenuTheme(color)
+  appStore.setHeaderTheme(color)
+}
+
 export default defineComponent({
   name: 'ToolHeader',
   setup() {
@@ -56,6 +64,11 @@ export default defineComponent({
           {screenfull.value ? (
             <Screenfull class="custom-hover" color="var(--top-header-text-color)"></Screenfull>
           ) : undefined}
+          <ThemeSwitch
+            onChange={() => {
+              themeChange()
+            }}
+          />
           {size.value ? (
             <SizeDropdown class="custom-hover" color="var(--top-header-text-color)"></SizeDropdown>
           ) : undefined}
