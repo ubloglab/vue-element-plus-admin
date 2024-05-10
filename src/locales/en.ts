@@ -167,6 +167,7 @@ export default {
     user: 'User management',
     role: 'Role management',
     document: 'Document',
+    documentEmbedded: 'Document(Embedded)',
     inputPassword: 'InputPassword',
     sticky: 'Sticky',
     treeTable: 'Tree table',

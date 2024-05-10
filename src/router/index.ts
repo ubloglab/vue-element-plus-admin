@@ -113,22 +113,6 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     ]
   },
   {
-    path: '/external-link',
-    component: Layout,
-    meta: {},
-    name: 'ExternalLink',
-    children: [
-      {
-        path: 'https://element-plus-admin-doc.cn/',
-        name: 'DocumentLink',
-        meta: {
-          title: t('router.document'),
-          icon: 'clarity:document-solid'
-        }
-      }
-    ]
-  },
-  {
     path: '/guide',
     component: Layout,
     name: 'Guide',
@@ -724,6 +708,36 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
         name: 'Role',
         meta: {
           title: t('router.role')
+        }
+      }
+    ]
+  },
+  {
+    path: '/doc',
+    component: Layout,
+    redirect: '/doc/internal-doc',
+    name: 'Doc',
+    meta: {
+      title: '平台文档',
+      icon: 'clarity:document-solid',
+      alwaysShow: true
+    },
+    children: [
+      {
+        path: 'internal-doc',
+        component: () => import('@/views/Doc/InternalDoc.vue'),
+        name: 'InternalDoc',
+        meta: {
+          title: t('router.documentEmbedded'),
+          icon: 'clarity:document-solid'
+        }
+      },
+      {
+        path: 'https://element-plus-admin-doc.cn/',
+        name: 'DocumentLink',
+        meta: {
+          title: t('router.document'),
+          icon: 'clarity:document-solid'
         }
       }
     ]

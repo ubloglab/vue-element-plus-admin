@@ -39,22 +39,6 @@ const adminList = [
     ]
   },
   {
-    path: '/external-link',
-    component: '#',
-    meta: {},
-    name: 'ExternalLink',
-    children: [
-      {
-        path: 'https://element-plus-admin-doc.cn/',
-        name: 'DocumentLink',
-        meta: {
-          title: 'router.document',
-          icon: 'clarity:document-solid'
-        }
-      }
-    ]
-  },
-  {
     path: '/guide',
     component: '#',
     name: 'Guide',
@@ -657,6 +641,36 @@ const adminList = [
         name: 'Role',
         meta: {
           title: 'router.role'
+        }
+      }
+    ]
+  },
+  {
+    path: '/doc',
+    component: '#',
+    redirect: '/doc/internal-doc',
+    name: 'Doc',
+    meta: {
+      title: '平台文档',
+      icon: 'clarity:document-solid',
+      alwaysShow: true
+    },
+    children: [
+      {
+        path: 'internal-doc',
+        component: 'views/Doc/InternalDoc',
+        name: 'InternalDoc',
+        meta: {
+          title: 'router.documentEmbedded',
+          icon: 'clarity:document-solid'
+        }
+      },
+      {
+        path: 'https://element-plus-admin-doc.cn/',
+        name: 'DocumentLink',
+        meta: {
+          title: 'router.document',
+          icon: 'clarity:document-solid'
         }
       }
     ]
