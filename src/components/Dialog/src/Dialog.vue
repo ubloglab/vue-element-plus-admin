@@ -66,6 +66,7 @@ const dialogStyle = computed(() => {
     top="0"
     :close-on-click-modal="false"
     :show-close="false"
+    class="!lt-sm:w-[calc(100%-10vw)] !lt-md:w-[calc(100%-10vw)]"
   >
     <template #header="{ close }">
       <div class="flex justify-between items-center h-54px pl-15px pr-15px relative">

@@ -293,8 +293,8 @@ const save = async () => {
 </script>
 
 <template>
-  <div class="flex w-100% h-100%">
-    <ContentWrap class="w-250px">
+  <div class="flex w-100% h-100% flex-wrap">
+    <ContentWrap class="w-250px lt-sm:w-100% lt-md:w-100% lt-sm:mb-20px lt-md:mb-20px">
       <div class="flex justify-center items-center">
         <div class="flex-1">{{ t('userDemo.departmentList') }}</div>
         <ElInput
@@ -328,7 +328,7 @@ const save = async () => {
         </template>
       </ElTree>
     </ContentWrap>
-    <ContentWrap class="flex-[3] ml-20px">
+    <ContentWrap class="flex-[3] ml-20px lt-sm:w-100% lt-md:w-100% lt-sm:ml-0 lt-md:ml-0">
       <Search
         :schema="allSchemas.searchSchema"
         @reset="setSearchParams"
